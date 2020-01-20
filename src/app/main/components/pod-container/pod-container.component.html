@@ -1,0 +1,16 @@
+<!-- <div #grid class="grid" muuriGrid>
+   <div class="item" muuriGridItem *ngFor="let chartOption of charts2Render$">
+     <div class="item-content">
+       <pod [chartOption]="chartOption"></pod>
+     </div>
+   </div>
+</div> -->
+
+<div class="grid">
+    <div class="item" *ngFor="let podConfig of pods2Render$">
+      <div class="item-content">
+        <pod [config]="podConfig"></pod>
+      </div>
+     </div>
+</div>
+

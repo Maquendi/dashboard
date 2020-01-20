@@ -11,7 +11,7 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "~7.2.0",
+    "@angular/animations": "^7.2.16",
     "@angular/common": "~7.2.0",
     "@angular/compiler": "~7.2.0",
     "@angular/core": "~7.2.0",
@@ -19,7 +19,14 @@
     "@angular/platform-browser": "~7.2.0",
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/router": "~7.2.0",
+    "angular-highcharts": "7.2.0",
+    "bootstrap": "^4.4.1",
     "core-js": "^2.5.4",
+    "highcharts": "^8.0.0",
+    "jquery": "^3.4.1",
+    "muuri": "^0.8.0",
+    "primeicons": "^2.0.0",
+    "primeng": "^9.0.0-rc.2",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.26"

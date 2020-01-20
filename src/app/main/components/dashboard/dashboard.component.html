@@ -1,0 +1,21 @@
+
+<div class="main">
+  <div class="row header">
+    <div class="pull-right">
+      <button type="button"
+      class="btn btn-primary" (click)="displayPodConfigurer=true">New Pod</button>
+    </div>
+  </div>
+
+  <div class="pod-container">
+    <pod-container [pods2Render]="charts2Render"></pod-container>
+  </div>
+
+  <div class="dialog-container">
+    <p-dialog header="Pod Configurer Dialog" [(visible)]="displayPodConfigurer">
+      <pod-configurer [options]="totalChartOptions" 
+      (oncompleted)="onConfigurationSelected($event)">
+    </pod-configurer>
+  </p-dialog>
+  </div>
+</div>

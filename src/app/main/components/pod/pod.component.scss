@@ -1,0 +1,20 @@
+.pod-mask{
+  z-index: 200000;
+ // background-color: rgb(219, 95, 13);
+  
+
+  .pod-container{
+    border: 1px solid gray;
+    min-width: 400px;
+    .header span{
+      font-weight: bold;
+      margin-right: 2px;
+      margin-left: 4px;
+    }
+  }
+  
+  .pod-container .header .customer span img {
+      float: right;
+  }
+}
+
