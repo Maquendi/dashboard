@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import * as Highcharts from 'highcharts';
 import { Chart } from 'angular-highcharts';
 import { PodService } from '../../model/services/pod.service';
 import { VzPod } from '../../model/classes/implementations/BasicBarChart';
@@ -11,9 +10,9 @@ import { VzPod } from '../../model/classes/implementations/BasicBarChart';
 })
 export class PodComponent implements OnInit {
 
-  @Input('config') public pod: VzPod;
+  @Input('config') public podConfig: VzPod;
 
-  public chart: Chart; //Highcharts.Chart;
+  public chart: Chart;
 
   constructor(private podService: PodService) {}
 
@@ -21,32 +20,28 @@ export class PodComponent implements OnInit {
     this.initializeChart();
   }
 
-  ngAfterViewInit(): void {
-    // setInterval(()=> {
-    //  this.pod.fetchData(this.podService).subscribe(resp => {
-    //    //console.log(resp)
-    //   this.pod.chart.options.series = resp;
-    //  })
-    // },20000)
-  }
+  ngAfterViewInit(): void {}
 
 
   ngAfterContentInit(): void {}
 
-  initializeChart() : void{
+  initializeChart() : void {
+    this.loadData()
+    this.refreshPod();
+  }
 
-    this.chart = new Chart(this.pod.chart.options);
 
-    // this.chart = Highcharts.chart(
-    //   this.pod.id,
-    //   this.pod.chart.options
-    // );
-    // this.chart.addCredits({
-    //   enabled: false
-    // });
-    // this.chart.setTitle({
-    //   text: this.pod.title
-    //  });
+  loadData() {
+    this.podConfig.loadPodData(this.podService).subscribe(resp=> {
+      this.chart = new Chart(resp.options);
+    });
+  }
+
+
+  public refreshPod(timeLapse: number = 20000) {
+    setInterval(()=> {
+     this.loadData();
+    }, timeLapse)
   }
 
 

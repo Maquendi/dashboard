@@ -1,9 +1,10 @@
 import { PodService } from '../services/pod.service';
 import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
-export interface IChart<T>{
-    options: Highcharts.Options,
-    dataResolver: ChartDataResolver<Observable<T>>
+export interface IChart{
+    optionWrapper: ChartOptionWrapper,
+    chartDataFetchService: ChartDataFetch,
 }
 
 
@@ -11,6 +12,15 @@ export interface DataFetcher<T, R>{
     fetchData(service: T, other?: any): R
 }
 
+export interface ChartOptionWrapper {
+    injectData(data: any);
+    options?: any;
+}
+
+export interface ChartDataFetch{
+    fetchData(podService: PodService, optionsWrapper: ChartOptionWrapper): Observable<ChartOptionWrapper>;
+  }
+  
 
 export interface ISerie{
     name: string;

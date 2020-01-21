@@ -1,8 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { IChart } from '../../model/interfaces/charts';
 import { VZ_POD_REGISTRY_STORE } from '../../model/classes/utilities/Injection-tokens';
-import { VzPod } from '../../model/classes/statics/chart-registry';
 import { PodService } from '../../model/services/pod.service';
+import { VzPod } from '../../model/classes/implementations/BasicBarChart';
 
 @Component({
   selector: 'app-dashboard',
@@ -20,18 +20,14 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.charts2Render=this.totalChartOptions;
-    this.charts2Render.forEach(pod => {
-      pod.fetchData(this.podService).subscribe();
-    });
-    
+    this.charts2Render=this.totalChartOptions;    
   }
 
   onClick($event){
     console.log($event)
   }
 
-  onConfigurationSelected(chart: IChart<any>){
+  onConfigurationSelected(chart: IChart){
    let arr=[] ;
    Object.assign(arr, this.charts2Render);
    arr.push(chart);

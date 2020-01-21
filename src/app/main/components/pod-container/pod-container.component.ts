@@ -1,5 +1,4 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges, AfterViewInit } from '@angular/core';
-import { IChart } from '../../model/interfaces/charts';
+import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
 import * as Muuri from 'muuri';
 import { PodService } from '../../model/services/pod.service';
 import { VzPod } from '../../model/classes/implementations/BasicBarChart';
